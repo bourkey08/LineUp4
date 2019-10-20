@@ -1,0 +1,20 @@
+<!doctype html>
+<!-- Written by Mitchell Bourke - bourkey08@gmail.com -->
+<!-- Implementation of a Monte Carlo connect 4 AI and basic connect 4 game -->
+<html>
+<head>
+<meta charset="utf-8">
+<title>Connect Four</title>
+
+<link href="connect4.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="connect4.js"></script>
+<script language="javascript" src="ai.js"></script>
+</head>
+
+<body onLoad="Initilize();">
+	<center>	
+		<div id="toptext"></div>
+		<canvas id="connect4board" height="510" width="596" onMouseDown="PlayerMove(event);"></canvas>
+	</center>
+</body>
+</html>

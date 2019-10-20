@@ -1,0 +1,10 @@
+#connect4board{
+	display: inline-block;	
+}
+
+#toptext{
+	height: 18pt;
+	font-size: 16pt;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
