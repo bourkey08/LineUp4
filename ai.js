@@ -1,10 +1,40 @@
-//Preform AI Move
+let tmpstate = [[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0]];//Copy of starting board state
+        
+        for (let x=0; x<7; x++){
+            for (let y=0; y<6; y++){
+                tmpstate[x][y] = state[x][y];
+            }
+        }
+        
+		let turn = 1;//Player whos turn it is
+		let gamestatus = 0;//Status of the current game
+		let thismove = 0;//Column to put stone in	let tmpstate = [[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0]];//Copy of starting board state
+        
+        for (let x=0; x<7; x++){
+            for (let y=0; y<6; y++){
+                tmpstate[x][y] = state[x][y];
+            }
+        }
+        
+		let turn = 1;//Player whos turn it is
+		let gamestatus = 0;//Status of the current game
+		let thismove = 0;//Column to put stone in	let tmpstate = [[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0]];//Copy of starting board state
+        
+        for (let x=0; x<7; x++){
+            for (let y=0; y<6; y++){
+                tmpstate[x][y] = state[x][y];
+            }
+        }
+        
+		let turn = 1;//Player whos turn it is
+		let gamestatus = 0;//Status of the current game
+		let thismove = 0;//Column to put stone in//Preform AI Move
 function AIMove(){
 	
 	//For each column that is not full preform a monte carlo simulation
-	let results = []
+	var results = []
 	
-	for (let id = 0; id <= 6; id++){
+	for (var id = 0; id <= 6; id++){
 		if (board[id][0] == 0){//If this column is not full
 			results.push(MonteCarlo(JSON.parse(JSON.stringify(board)), id));//Copy board and send to montecarlo function
 			
@@ -15,7 +45,7 @@ function AIMove(){
 	
 	console.log(results)
 	//Place a stone in the cell with the highest value	
-	let bestmove = results.indexOf(results.slice().sort(function(a,b) { return a - b; })[6]);//Find the highest ranked cell
+	var bestmove = results.indexOf(results.slice().sort(function(a,b) { return a - b; })[6]);//Find the highest ranked cell
 	
 	//Add a stone to the highest ranked cell
 	board[bestmove][FindLowestFree(board, bestmove)] = 2;
@@ -23,19 +53,26 @@ function AIMove(){
 
 
 function MonteCarlo(state, col, n=10000){
-	let win = 0;
-	let lose = 0;
-	let draw = 0;
+	var win = 0;
+	var lose = 0;
+	var draw = 0;
 	
 	//Place first stone in specified column
 	state[col][FindLowestFree(state, col)] = 2;
 	
 	//Now play n games and count wins
-	let gamecount = 0;//Count the number of games played	
+	var gamecount = 0;//Count the number of games played	
 	
 	
 	while (gamecount < n){
-		let tmpstate = JSON.parse(JSON.stringify(state));//Copy of starting board state
+		let tmpstate = [[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0]];//Copy of starting board state
+        
+        for (let x=0; x<7; x++){
+            for (let y=0; y<6; y++){
+                tmpstate[x][y] = state[x][y];
+            }
+        }
+        
 		let turn = 1;//Player whos turn it is
 		let gamestatus = 0;//Status of the current game
 		let thismove = 0;//Column to put stone in
